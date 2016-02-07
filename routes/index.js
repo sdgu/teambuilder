@@ -11,7 +11,6 @@ for (var move in moves.BattleMovedex)
 	moveList.push(moves.BattleMovedex[move]['name']);
 }
 console.log(moveList);
-//test
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
