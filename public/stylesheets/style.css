@@ -1,0 +1,15 @@
+body, html 
+{
+  padding: 50px;
+  font: 14px "Ubuntu", sans-serif;
+  background-color: #F0F0F0;
+}
+input
+{
+	
+	font: "Ubuntu", sans-serif;
+}
+a 
+{
+  color: #00B7FF;
+}

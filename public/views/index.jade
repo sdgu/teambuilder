@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	body(ng-app="teambuilder")
+		h1 welcome to pasta
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angular_material/1.0.3/angular-material.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+		script(src='/javascripts/teambuilder.js')
+
+		div(ng-control="MainCtrl")
+
+
+			div(ui-view)
+
+			input(ng-model="move1")
+
+
+			p(ng-bind="move1")
