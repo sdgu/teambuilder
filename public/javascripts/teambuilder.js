@@ -4,62 +4,68 @@ var app = angular.module("teambuilder", ["ui.router", "ngSanitize", "ngMaterial"
 
 
 
-
-// app.factory("movedex", function($http)
-// {
-// 	var o = 
-// 	{
-// 		movedex: []
-// 	}
-
-// 	o.getAll = function()
-// 	{
-	    
-// 	    return $http.get("/movelist").success(function(data)
-// 	    {
-// 	      //alert("getAllInReturn");
-// 	      angular.copy(data, o.movedex);
-// 	    });
-// 	}
-//   	return o;
-// });
-
-app.service("dex", function()
+app.factory("dex", function($http)
 {
-	var dex = [];
-
-	this.getAll = function(url)
+	var obj = 
 	{
-		$.ajax(
+		dex: []
+	};
+
+
+	obj.getAll = function()
+	{
+		$http.get("/movelist").success(function(data)
 		{
-			url: url,
-			async: false,
-			success: function(data)
-			{
-				dex = data;
-			}
+			angular.copy(data, obj.dex);
 		});
-		return dex;
 	}
-
-	//the word you are looking for, the array aka the dex
-	// this.findRel = function(query, source)
-	// {
-	// 	var relevant = "<table>";
-
-	// 	for (var i = 0; i < source.length; i++)
-	// 	{
-	// 		if (source[i].id.contains(query))
-	// 	}
-
-
-
-
-
-	// 	var relevant += "</table>";
-	// }
-
+	return obj;
 });
+
+// app.service("dex", function($http)
+// {
+// 	var dex = [];
+
+// 	this.getAll = function(url)
+// 	{
+// 		// $.ajax(
+// 		// {
+// 		// 	url: url,
+// 		// 	async: false,
+// 		// 	success: function(data)
+// 		// 	{
+// 		// 		dex = data;
+// 		// 	}
+// 		// });
+// 		// return dex;
+
+
+// 		//trying to use $http instead of synchronous jquery
+// 		// return $http.get("/movelist").success(function(data)
+// 		// {
+// 		// 	return data;
+// 		// });
+// 	}
+// 	//return dex;
+
+// 	//the word you are looking for, the array aka the dex
+// 	// this.findRel = function(query, source)
+// 	// {
+// 	// 	var relevant = "<table>";
+
+// 	// 	for (var i = 0; i < source.length; i++)
+// 	// 	{
+// 	// 		if (source[i].id.contains(query))
+// 	// 	}
+
+
+
+
+
+// 	// 	var relevant += "</table>";
+// 	// }
+
+// });
 
 
 app.controller("MainCtrl", 
@@ -73,16 +79,16 @@ app.controller("MainCtrl",
 		var firstMove = $scope.move1;
 		$scope.move1 = firstMove;
 
-		var movelist = dex.getAll("/movelist");
+		//var movelist = dex.getAll("/movelist");
+		
+		var movelist = dex.dex;
+		
 
-		var numKeyStrokes = 0;
-
-		// var two = "move2";
-		// $scope[two] = "blah";
 		var currentInput = "";
 
 		$scope.findRelMoves = function(e)
 		{
+
 			currentInput = e.target.id;
 			//e.target.id
 			//$scope[e.target.id]
@@ -122,7 +128,15 @@ app.config(function($stateProvider, $urlRouterProvider)
 	$stateProvider.state("home",
 	{
 		url: "/home",
-		templateUrl: "/views/partial-home.html"
+		templateUrl: "/views/partial-home.html",
+		controller: "MainCtrl as m",
+		resolve:
+      	{
+        	postPromise: ["dex", function(dex)
+        	{
+          		return dex.getAll();
+        	}]
+      }
 	});
 
 });

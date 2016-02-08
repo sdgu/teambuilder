@@ -1,7 +1,18 @@
 <div>
 
 	The pasta page
+<p ng-bind="test"></p>
 
+<input id="move1" ng-model="move1" ng-keyup="findRelMoves($event)"/>
+<input id="move2" ng-model="move2" ng-keyup="findRelMoves($event)"/>
+<p ng-bind="keystrokes"></p>
+<div ng-repeat="move in m.moveDex">
+  <table>
+    <tr>
+      <td><a href="" ng-click="fillInput(move.name)"><span ng-bind="move.name"></span></a></td>
+    </tr>
+  </table>
+</div>
 
 
 </div>
