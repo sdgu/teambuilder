@@ -12,13 +12,21 @@ block content
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
 		script(src='/javascripts/teambuilder.js')
 
-		div(ng-controller="MainCtrl")
+		div(ng-controller="MainCtrl as m")
 
-
+			p(ng-bind="test")
 			div(ui-view)
 
 			input(ng-model="move1" ng-keyup="findRelMoves($event)")
 
-			p(ng-bind-html="relMoves")
+			//-p(ng-bind-html="relMoves")
+			p(ng-bind="keystrokes")
+
+			div(ng-repeat="move in m.moveDex")
+				table
+					tr
+						td
+							a(href="" ng-click="fillInput(move.name)")
+								span(ng-bind="move.name")
 
 			//-p(ng-bind="move1")

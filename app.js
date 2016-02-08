@@ -10,7 +10,6 @@ var users = require('./routes/users');
 
 var moves = require("./public/data/moves");
 
-
 var app = express();
 
 // view engine setup
