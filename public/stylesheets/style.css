@@ -1,12 +1,12 @@
 body, html 
 {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Ubuntu", sans-serif;
   background-color: #F0F0F0;
 }
 input
 {
-	
+
 	font: "Ubuntu", sans-serif;
 }
 a 
