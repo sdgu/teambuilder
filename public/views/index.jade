@@ -1,8 +1,10 @@
-extends layout
-
-block content
-	body(ng-app="teambuilder")
+doctype html
+html(ng-app="teambuilder")
+	head
+		title(ng-bind="title")
+	body
 		h1 welcome to pasta
+		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js')
 		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js')
 		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js')
@@ -12,25 +14,5 @@ block content
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
 		script(src='/javascripts/teambuilder.js')
 
-		//- div(ng-controller="MainCtrl as m")
-		
-		//- 	p(ng-bind="test")
 		div(ui-view)
 
-	
-
-		//- 	input(id="move1" ng-model="move1" ng-keyup="findRelMoves($event)")
-		//- 	input(id="move2" ng-model="move2" ng-keyup="findRelMoves($event)")
-
-		//- 	//-p(ng-bind-html="relMoves")
-		//- 	p(ng-bind="keystrokes")
-
-		//- 	div(ng-repeat="move in m.moveDex")
-		//- 		table
-		//- 			tr
-		//- 				td
-		//- 					a(href="" ng-click="fillInput(move.name)")
-		//- 						span(ng-bind="move.name")
-
-
-		//-p(ng-bind="move1")

@@ -8,7 +8,7 @@ var pokes = require("../public/data/pokedex");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: "Teambuilder" });
+  res.render('index', {});
 });
 
 router.get("/movelist", function(req, res, next)

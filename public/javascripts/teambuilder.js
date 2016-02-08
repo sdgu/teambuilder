@@ -69,14 +69,15 @@ app.factory("dex", function($http)
 // });
 
 
-app.controller("MainCtrl", 
+app.controller("TeambuilderCtrl", 
 [
 	"$scope",
+	"$rootScope",
 	"dex",
-	function($scope, dex)
+	function($scope, $rootScope, dex)
 	{
-
-		$scope.test = "thing";
+		$rootScope.title = "Teambuilder";
+		
 		var firstMove = $scope.move1;
 		$scope.move1 = firstMove;
 
@@ -130,7 +131,7 @@ app.config(function($stateProvider, $urlRouterProvider)
 	{
 		url: "/home",
 		templateUrl: "/views/partial-home.html",
-		controller: "MainCtrl as m",
+		controller: "TeambuilderCtrl as m",
 		resolve:
       	{
         	postPromise: ["dex", function(dex)
