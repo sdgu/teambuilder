@@ -8,7 +8,8 @@ app.factory("dex", function($http)
 {
 	var obj = 
 	{
-		dex: []
+		dex: [],
+		moves: []
 	};
 
 
@@ -16,7 +17,7 @@ app.factory("dex", function($http)
 	{
 		$http.get("/movelist").success(function(data)
 		{
-			angular.copy(data, obj.dex);
+			angular.copy(data, obj.moves);
 		});
 	}
 	return obj;
@@ -81,8 +82,8 @@ app.controller("MainCtrl",
 
 		//var movelist = dex.getAll("/movelist");
 		
-		var movelist = dex.dex;
-		
+		var movelist = dex.moves;
+
 
 		var currentInput = "";
 
