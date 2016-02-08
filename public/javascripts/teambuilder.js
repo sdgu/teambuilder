@@ -77,15 +77,20 @@ app.controller("MainCtrl",
 
 		var numKeyStrokes = 0;
 
+		// var two = "move2";
+		// $scope[two] = "blah";
+		var currentInput = "";
+
 		$scope.findRelMoves = function(e)
 		{
-			
-
+			currentInput = e.target.id;
+			//e.target.id
+			//$scope[e.target.id]
 			$scope.m.moveDex = [];
 
 
 			//the move you're looking for
-			var q = $scope.move1;
+			var q = $scope[currentInput];
 
 			for (var i = 0; i < movelist.length; i++)
 			{
@@ -103,7 +108,7 @@ app.controller("MainCtrl",
 
 		$scope.fillInput = function(name)
 		{
-			$scope.move1 = name;
+			$scope[currentInput] = name;
 		}
 
 

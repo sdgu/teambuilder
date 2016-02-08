@@ -17,7 +17,10 @@ block content
 			p(ng-bind="test")
 			div(ui-view)
 
-			input(ng-model="move1" ng-keyup="findRelMoves($event)")
+	
+
+			input(id="move1" ng-model="move1" ng-keyup="findRelMoves($event)")
+			input(id="move2" ng-model="move2" ng-keyup="findRelMoves($event)")
 
 			//-p(ng-bind-html="relMoves")
 			p(ng-bind="keystrokes")
